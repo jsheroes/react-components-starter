@@ -7,8 +7,8 @@ This is the basic starter for learning React components. It consists of some con
  
 Everything is wired together with [vite](https://vitejs.dev/), so to run the project you have to run in a terminal:
 ```
-npm install
-npm run dev
+yarn
+yarn dev
 ```
 
 ## What we build
