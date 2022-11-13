@@ -1,3 +1,7 @@
+import React from "react";
+
+import { repositories } from "./data";
+import RepositoryCard from "./components/RepositoryCard";
 import "./App.css";
 
 function App() {
@@ -14,20 +18,13 @@ function App() {
         </form>
 
         <ul>
-          <li className="repo-card">
-            <span className="title">facebook/react</span>
-            <span className="description">placeholder description</span>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">vuejs/vue</span>
-            <span className="description">placeholder description</span>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">sveltejs/svelte</span>
-            <span className="description">placeholder description</span>
-          </li>
+          {repositories.map((repository, index) => (
+            <RepositoryCard
+              title={repository.title}
+              description={repository.description}
+              key={index}
+            />
+          ))}
         </ul>
       </main>
     </>
