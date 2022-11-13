@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
-import { fetchMostPopularRepos } from "./service";
+import { fetchMostPopularRepos, searchReposByName } from "./service";
 
+import SearchForm from "./components/SearchForm";
 import RepositoryCard from "./components/RepositoryCard";
 import "./App.css";
 
@@ -13,6 +14,12 @@ function App() {
       setRepositories(data);
     });
   }, []);
+  
+  const onSearch = (searchTerm) => {
+    searchReposByName(searchTerm).then(data => {
+      setRepositories(data);
+    });
+  };
 
   return (
     <>
@@ -21,11 +28,7 @@ function App() {
       </header>
 
       <main>
-        <form className="search-form">
-          <input className="input" />
-          <button className="button">Search</button>
-        </form>
-
+        <SearchForm onSearch={onSearch} />
         <ul>
           {repositories.map((repository, index) => (
             <RepositoryCard
