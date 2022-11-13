@@ -14,9 +14,9 @@ function App() {
       setRepositories(data);
     });
   }, []);
-  
+
   const onSearch = (searchTerm) => {
-    searchReposByName(searchTerm).then(data => {
+    searchReposByName(searchTerm).then((data) => {
       setRepositories(data);
     });
   };
@@ -32,7 +32,7 @@ function App() {
         <ul>
           {repositories.map((repository, index) => (
             <RepositoryCard
-              title={repository.title}
+              title={repository.full_name}
               description={repository.description}
               key={index}
             />
