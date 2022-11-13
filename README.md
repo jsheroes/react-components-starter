@@ -31,12 +31,14 @@ Here's the complete checklist of the concepts you'll be learning while doing thi
   - State (useState)
   - Integrate async call (useEffect)
 - Connect multiple components
-  - Lifting state
-  - Controlled vs Uncontrolled
   - Getting input value (useRef)
   - Error state on search form
   - Conditional render (loading state)
 - Multi page application
   - react-router & Link component
   - Custom hooks (reuse fetch)
-  - Integrate external libraries (mentor's choice)
+  
+Extra:
+- Lifting state
+- Controlled vs Uncontrolled components
+- Integrate external libraries (mentor's choice)

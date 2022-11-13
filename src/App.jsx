@@ -8,16 +8,21 @@ import "./App.css";
 
 function App() {
   const [repositories, setRepositories] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetchMostPopularRepos().then((data) => {
       setRepositories(data);
+      setIsLoading(false);
     });
   }, []);
 
   const onSearch = (searchTerm) => {
+    setIsLoading(true);
     searchReposByName(searchTerm).then((data) => {
       setRepositories(data);
+      setIsLoading(false);
     });
   };
 
@@ -29,15 +34,19 @@ function App() {
 
       <main>
         <SearchForm onSearch={onSearch} />
-        <ul>
-          {repositories.map((repository, index) => (
-            <RepositoryCard
-              title={repository.full_name}
-              description={repository.description}
-              key={index}
-            />
-          ))}
-        </ul>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : (
+          <ul>
+            {repositories.map((repository, index) => (
+              <RepositoryCard
+                title={repository.full_name}
+                description={repository.description}
+                key={index}
+              />
+            ))}
+          </ul>
+        )}
       </main>
     </>
   );
