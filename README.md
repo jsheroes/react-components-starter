@@ -33,7 +33,8 @@ Here's the complete checklist of the concepts you'll be learning while doing thi
 - Connect multiple components
   - Lifting state
   - Controlled vs Uncontrolled
-  - Dependencies in useEffect
+  - Getting input value (useRef)
+  - Error state on search form
   - Conditional render (loading state)
 - Multi page application
   - react-router & Link component

@@ -4,6 +4,7 @@
   --color-text: #333;
   --color-accent: #28a745;
   --color-accent-hover: #22863a;
+  --color-error: #b00;
 
   --drop-shadow: 0 2px 8px 1px rgba(18, 18, 18, 0.3);
   --animation-fade: all 0.1s ease-out;
@@ -78,6 +79,16 @@ main {
 .button:hover {
   background: var(--color-accent-hover);
   border-radius: 0;
+}
+
+/* Error styles on Search Form */
+
+.error .input {
+  border-color: var(--color-error);
+}
+
+.error .button {
+  background: var(--color-error);
 }
 
 /* Repo card component styles */
