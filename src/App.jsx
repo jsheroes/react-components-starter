@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-import { repositories } from "./data";
+import { fetchMostPopularRepos } from "./service";
+
 import RepositoryCard from "./components/RepositoryCard";
 import "./App.css";
 
 function App() {
+  const [repositories, setRepositories] = useState([]);
+
+  useEffect(() => {
+    fetchMostPopularRepos().then((data) => {
+      setRepositories(data);
+    });
+  }, []);
+
   return (
     <>
       <header>
