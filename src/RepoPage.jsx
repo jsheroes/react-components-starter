@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 
 import { fetchRepoDetails } from "./service";
 
+import Header from "./components/Header";
+
 import "./App.css";
 
 function RepoPage() {
@@ -21,9 +23,7 @@ function RepoPage() {
 
   return (
     <>
-      <header>
-        <h1>GitHub Explorer</h1>
-      </header>
+      <Header />
 
       <main>
         {isLoading ? (

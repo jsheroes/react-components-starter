@@ -51,17 +51,25 @@ main {
   z-index: 1;
 }
 
-.bear {
+.bear-link {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
+  z-index: 1;
+}
+
+.bear {
+  height: 100%;
 }
 
 @media (max-width: 1400px) {
-  .bear {
+  .bear-link {
     left: auto;
     right: 0;
+  }
+
+  .bear {
     transform: scaleX(-1);
   }
 }

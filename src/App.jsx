@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { fetchMostPopularRepos, searchReposByName } from "./service";
 
+import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
 import RepositoryCard from "./components/RepositoryCard";
 import "./App.css";
@@ -28,13 +29,7 @@ function App() {
 
   return (
     <>
-      <header>
-        <div className="content-wrapper">
-          <h1>Welcome to the JSHeroes Bootcamp!</h1>
-        </div>
-        <img className="bear" src="/js-heroes-bear.png" />
-      </header>
-
+      <Header />
       <main>
         <SearchForm onSearch={onSearch} />
         {isLoading ? (
