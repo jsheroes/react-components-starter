@@ -4,7 +4,10 @@ function App() {
   return (
     <>
       <header>
-        <h1>GitHub Explorer</h1>
+        <div className="content-wrapper">
+          <h1>Welcome to the JSHeroes Bootcamp!</h1>
+        </div>
+        <img className="bear" src="/js-heroes-bear.png" />
       </header>
 
       <main>
@@ -13,20 +16,32 @@ function App() {
           <button className="button">Search</button>
         </form>
 
-        <ul>
+        <ul className="repo-cards">
           <li className="repo-card">
             <span className="title">facebook/react</span>
             <span className="description">placeholder description</span>
+            <section className="footer">
+              <div>Stars: 500</div>
+              <div>Forks: 100</div>
+            </section>
           </li>
 
           <li className="repo-card">
             <span className="title">vuejs/vue</span>
             <span className="description">placeholder description</span>
+            <section className="footer">
+              <div>Stars: 500</div>
+              <div>Forks: 100</div>
+            </section>
           </li>
 
           <li className="repo-card">
             <span className="title">sveltejs/svelte</span>
             <span className="description">placeholder description</span>
+            <section className="footer">
+              <div>Stars: 500</div>
+              <div>Forks: 100</div>
+            </section>
           </li>
         </ul>
       </main>
