@@ -5,9 +5,8 @@ import { fetchMostPopularRepos, searchReposByName } from "./service";
 import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
 import RepositoryCard from "./components/RepositoryCard";
-import "./App.css";
 
-function App() {
+function HomePage() {
   const [repositories, setRepositories] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
