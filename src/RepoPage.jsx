@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 
+import { useFetch } from "./hooks/useFetch";
 import { fetchRepoDetails } from "./service";
 
 import Header from "./components/Header";
@@ -8,16 +9,10 @@ import Header from "./components/Header";
 function RepoPage() {
   const { owner, repo } = useParams();
 
-  const [repository, setRepository] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchRepoDetails(owner, repo).then((data) => {
-      setRepository(data);
-      setIsLoading(false);
-    });
-  }, []);
+  const [isLoading, repository] = useFetch(
+    () => fetchRepoDetails(owner, repo),
+    []
+  );
 
   return (
     <>
