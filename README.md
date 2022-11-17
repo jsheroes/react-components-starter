@@ -39,3 +39,17 @@ Here's the complete checklist of the concepts you'll be learning while doing thi
   - react-router & Link component
   - Custom hooks (reuse fetch)
   - Integrate external libraries (mentor's choice)
+
+## Github api documentation
+
+### Fetch github repos 
+
+Find repositories via various criteria. This method returns up to 100 results per page.
+
+**Docs page** : https://docs.github.com/en/rest/search#search-repositories
+
+**URL** : `https://api.github.com/search/repositories`
+
+**Method** : `GET`
+
+**Response example**: src/mocks/projects.json
