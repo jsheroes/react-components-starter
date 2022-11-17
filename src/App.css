@@ -153,6 +153,11 @@ main {
   transform: scale(1.025);
 }
 
+.repo-card a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .title {
   display: block;
   font-weight: 700;
