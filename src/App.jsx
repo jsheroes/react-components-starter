@@ -40,8 +40,7 @@ function App() {
           <ul>
             {repositories.map((repository, index) => (
               <RepositoryCard
-                title={repository.full_name}
-                description={repository.description}
+                repository={repository}
                 key={index}
               />
             ))}
