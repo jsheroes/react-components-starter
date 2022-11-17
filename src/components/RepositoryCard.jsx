@@ -10,6 +10,10 @@ function RepositoryCard({ repository }) {
         <span className="title">{full_name}</span>
       </Link>
       <span className="description">{description}</span>
+      <section className="footer">
+        <div>Stars: 500</div>
+        <div>Forks: 100</div>
+      </section>
     </li>
   );
 }

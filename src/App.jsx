@@ -29,7 +29,10 @@ function App() {
   return (
     <>
       <header>
-        <h1>GitHub Explorer</h1>
+        <div className="content-wrapper">
+          <h1>Welcome to the JSHeroes Bootcamp!</h1>
+        </div>
+        <img className="bear" src="/js-heroes-bear.png" />
       </header>
 
       <main>
@@ -37,12 +40,9 @@ function App() {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <ul>
+          <ul className="repo-cards">
             {repositories.map((repository, index) => (
-              <RepositoryCard
-                repository={repository}
-                key={index}
-              />
+              <RepositoryCard repository={repository} key={index} />
             ))}
           </ul>
         )}
