@@ -10,7 +10,7 @@ describe('GitHub explorer app', () => {
   })
   test('the title is visible', () => {
     render(<App />)
-    expect(screen.getByText(/GitHub Explorer/i)).toBeInTheDocument()
+    expect(screen.getByText(/Welcome to the JSHeroes Bootcamp/i)).toBeInTheDocument()
   })
 
   test('the textbox should be present', async () => {
