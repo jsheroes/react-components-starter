@@ -3,7 +3,7 @@
 This is the basic starter for learning React components. It consists of some config files and the src folder:
 - App.jsx
 - App.css
-- APp.test.jsx
+- App.test.jsx
 - main.jsx
  
 Everything is wired together with [vite](https://vitejs.dev/), so to run the project you have to run in a terminal:
@@ -46,9 +46,9 @@ Here's the complete checklist of the concepts you'll be learning while doing thi
   - Integrate external libraries (mentor's choice)
   - Write unit testing
 
-## GitHub API documentation
+## Useful Information
 
-### Useful GitHub links 
+### GitHub API documentation
 
 #### Get most popular repositories
 When you don't have a search term, you can use this request to get the most popular repos on GitHub.
@@ -68,3 +68,11 @@ The same request can be used to search by a term (eg: "react").
 * **Docs** : https://docs.github.com/en/rest/repos/repos#get-a-repository
 * **URL** : `https://api.github.com/repos/facebook/react`
 * **Method** : `GET`
+
+### How to setup your CodeSandbox account
+
+https://www.loom.com/share/602ac8392ad247428bd96f9b34daf512
+
+### How to create your GitHub API token
+
+https://www.loom.com/share/3ee61ca2012b45f1a560535ff4bc41ed
