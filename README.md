@@ -3,6 +3,7 @@
 This is the basic starter for learning React components. It consists of some config files and the src folder:
 - App.jsx
 - App.css
+- APp.test.jsx
 - main.jsx
  
 Everything is wired together with [vite](https://vitejs.dev/), so to run the project you have to run in a terminal:
@@ -11,11 +12,15 @@ yarn
 yarn dev
 ```
 
+If you prefer running the repo in the cloud:
+
+[![Open in CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/github/jsheroes/react-components-starter/main)
+
 ## What we build
 
-The goal of the bootcamp is for everyone to build a GitHub explorer web application. We'll be using the GitHub API (link coming soon) to fetch data and implement the following functionality on top of this starter:
-- Build your first React component (RepositoryCard)
-- Fetch data from the GitHub API (link coming soon)
+The goal of the bootcamp is for everyone to build a GitHub explorer web application. We'll be using the [GitHub REST API](https://docs.github.com/en/rest) to fetch data and implement the following functionality on top of this starter:
+- Build your first React components: RepositoryCard, SearchForm
+- Fetch data from the [GitHub REST API](https://docs.github.com/en/rest)
 - Add search form and connect with the fetching feature
 - Create a second page to show more details for each repository
 
@@ -41,16 +46,25 @@ Here's the complete checklist of the concepts you'll be learning while doing thi
   - Integrate external libraries (mentor's choice)
   - Write unit testing
 
-## Github api documentation
+## GitHub API documentation
 
-### Fetch github repos 
+### Useful GitHub links 
 
-Find repositories via various criteria. This method returns up to 100 results per page.
+#### Get most popular repositories
+When you don't have a search term, you can use this request to get the most popular repos on GitHub.
+* **Docs** : https://docs.github.com/en/rest/search#search-repositories
+* **URL** : `https://api.github.com/search/repositories?q=stars:>10000"`
+* **Method** : `GET`
+* **Response example**: `src/mocks/projects.json`
 
-**Docs page** : https://docs.github.com/en/rest/search#search-repositories
+#### Search repositories
+The same request can be used to search by a term (eg: "react").
+* **Docs** : https://docs.github.com/en/rest/search#search-repositories
+* **URL** : `https://api.github.com/search/repositories?q=react`
+* **Method** : `GET`
+* **Response example**: `src/mocks/projects.json`
 
-**URL** : `https://api.github.com/search/repositories`
-
-**Method** : `GET`
-
-**Response example**: src/mocks/projects.json
+#### Get repository details:
+* **Docs** : https://docs.github.com/en/rest/repos/repos#get-a-repository
+* **URL** : `https://api.github.com/repos/facebook/react`
+* **Method** : `GET`
