@@ -39,6 +39,7 @@ Here's the complete checklist of the concepts you'll be learning while doing thi
   - react-router & Link component
   - Custom hooks (reuse fetch)
   - Integrate external libraries (mentor's choice)
+  - Write unit testing
 
 ## Github api documentation
 
