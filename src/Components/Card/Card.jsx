@@ -1,17 +1,17 @@
 import React from "react";
 
-function Cards() {
+function Cards(props) {
+  console.log(props);
   return (
     <ul className="repo-cards">
       <li className="repo-card">
-        <span className="title">facebook/react</span>
-        <span className="description">placeholder description</span>
+        <span className="title">{props.title}</span>
+        <span className="description">{props.title}</span>
         <section className="footer">
-          <div>Stars: 500</div>
-          <div>Forks: 100</div>
+          <div>Stars: {props.stars}</div>
+          <div>Forks: {props.forks}</div>
         </section>
       </li>
-
     </ul>
   );
 }

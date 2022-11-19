@@ -27,16 +27,21 @@ const cards = [
 ];
 
 function App() {
+  const newArray = cards.map((card) => (
+    <Card
+      title={card.title}
+      description={card.description}
+      stars={card.stars}
+      forks={card.forks}
+    />
+  ));
+
   return (
     <>
       <Head />
       <main>
         <SearchForm />
-        <ul className="repo-cards">
-          <Card />
-          <Card />
-          <Card />
-        </ul>
+        <ul className="repo-cards">{newArray}</ul>
       </main>
     </>
   );
