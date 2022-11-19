@@ -25,17 +25,14 @@ const cards = [
 ];
 
 function App() {
-  let arrayCards = [];
-  for (let i = 0; i < cards.length; i++) {
-    arrayCards.push(
-      <Card
-        title={cards[i].title}
-        description={cards[i].description}
-        stars={cards[i].stars}
-        forks={cards[i].forks}
-      />
-    );
-  }
+  const arrayCards = cards.map((card) => (
+    <Card
+      title={card.title}
+      description={card.description}
+      stars={card.stars}
+      forks={card.forks}
+    />
+  ));
 
   return (
     <>
