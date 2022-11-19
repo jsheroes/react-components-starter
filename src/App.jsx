@@ -26,7 +26,8 @@ const cards = [
 ];
 
 function App() {
-  let filterCards = [];
+  const [filterCards, setFilterCards] = useState(cards);
+
   const cardsJSX = filterCards.map((card) => (
     <Card
       title={card.title}
@@ -35,7 +36,7 @@ function App() {
       forks={card.forks}
     />
   ));
-  console.log("render");
+  console.log("render", filterCards);
   return (
     <>
       <Header />
@@ -43,18 +44,20 @@ function App() {
         <SearchBar
           onSearch={(value) => {
             console.log(value);
+            const items = [];
             for (let i = 0; i < cards.length; i++) {
               if (
                 cards[i].title.includes(value) ||
                 cards[i].description.includes(value)
               ) {
-                filterCards.push(cards[i]);
+                items.push(cards[i]);
               }
             }
-            console.log(filterCards);
+            console.log(items);
+            setFilterCards(items);
           }}
         />
-        <ul className="repo-cards">{cardsJSX}</ul>;
+        <ul className="repo-cards">{cardsJSX}</ul>
       </main>
     </>
   );
