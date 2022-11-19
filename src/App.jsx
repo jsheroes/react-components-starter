@@ -2,6 +2,7 @@ import "./App.css";
 import Head from "./Components/Header/Header";
 import SearchForm from "./Components/SearchForm/SearchForm";
 import Card from "./Components/Card/Card";
+import {useState} from "react";
 
 const cards = [
   {
@@ -20,14 +21,15 @@ const cards = [
 
   {
     title: "sveltejs/svelte",
-    description: "placeholder description",
+    description: "test description",
     stars: 500,
     forks: 100,
   },
 ];
 
 function App() {
-  const newArray = cards.map((card) => (
+  let filteredCards = [];
+  const cardsJSX = filteredCards.map((card) => (
     <Card
       title={card.title}
       description={card.description}
@@ -35,13 +37,23 @@ function App() {
       forks={card.forks}
     />
   ));
+  console.log("rerender", filteredCards);
 
   return (
     <>
       <Head />
       <main>
-        <SearchForm />
-        <ul className="repo-cards">{newArray}</ul>
+        <SearchForm
+          onSearch={(value) => {
+            console.log(value);
+            filteredCards = cards.filter(
+              (item) =>
+                item.title.includes(value) || item.description.includes(value)
+            );
+            console.log(filteredCards);
+          }}
+        />
+        <ul className="repo-cards">{cardsJSX}</ul>
       </main>
     </>
   );

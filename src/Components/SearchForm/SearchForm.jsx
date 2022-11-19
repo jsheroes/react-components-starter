@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 
-function Form() {
+function SearchForm(props) {
+  const textInput = useRef(null);
+  function buttonClicked(e) {
+    e.preventDefault();
+    props.onSearch(textInput.current.value);
+  }
+
   return (
     <form className="search-form">
-      <input className="input" />
-      <button className="button">Search</button>
+      <input className="input" ref={textInput} />
+      <button onClick={buttonClicked} className="button">
+        Search
+      </button>
     </form>
   );
 }
 
-export default Form;
+export default SearchForm;

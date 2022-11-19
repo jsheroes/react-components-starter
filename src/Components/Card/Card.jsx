@@ -6,7 +6,7 @@ function Cards(props) {
     <ul className="repo-cards">
       <li className="repo-card">
         <span className="title">{props.title}</span>
-        <span className="description">{props.title}</span>
+        <span className="description">{props.description}</span>
         <section className="footer">
           <div>Stars: {props.stars}</div>
           <div>Forks: {props.forks}</div>
