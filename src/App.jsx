@@ -1,49 +1,59 @@
 import "./App.css";
+import Head from "./Components/Header/Header";
+import SearchForm from "./Components/SearchForm/SearchForm";
+import Card from "./Components/Card/Card";
+import {useState} from "react";
+
+const cards = [
+  {
+    title: "facebook/react",
+    description: "placeholder description",
+    stars: 500,
+    forks: 100,
+  },
+
+  {
+    title: "vuejs/vue",
+    description: "placeholder description",
+    stars: 500,
+    forks: 100,
+  },
+
+  {
+    title: "sveltejs/svelte",
+    description: "test description",
+    stars: 500,
+    forks: 100,
+  },
+];
 
 function App() {
+  let filteredCards = [];
+  const cardsJSX = filteredCards.map((card) => (
+    <Card
+      title={card.title}
+      description={card.description}
+      stars={card.stars}
+      forks={card.forks}
+    />
+  ));
+  console.log("rerender", filteredCards);
+
   return (
     <>
-      <header>
-        <div className="content-wrapper">
-          <h1>Welcome to the JSHeroes Bootcamp!</h1>
-        </div>
-        <img className="bear" src="/js-heroes-bear.png" />
-      </header>
-
+      <Head />
       <main>
-        <form className="search-form">
-          <input className="input" />
-          <button className="button">Search</button>
-        </form>
-
-        <ul className="repo-cards">
-          <li className="repo-card">
-            <span className="title">facebook/react</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">vuejs/vue</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">sveltejs/svelte</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-        </ul>
+        <SearchForm
+          onSearch={(value) => {
+            console.log(value);
+            filteredCards = cards.filter(
+              (item) =>
+                item.title.includes(value) || item.description.includes(value)
+            );
+            console.log(filteredCards);
+          }}
+        />
+        <ul className="repo-cards">{cardsJSX}</ul>
       </main>
     </>
   );
