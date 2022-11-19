@@ -2,7 +2,7 @@ import "./App.css";
 import Head from "./Components/Header/Header";
 import SearchForm from "./Components/SearchForm/SearchForm";
 import Card from "./Components/Card/Card";
-import {useState} from "react";
+import { useState } from "react";
 
 const cards = [
   {
@@ -28,7 +28,8 @@ const cards = [
 ];
 
 function App() {
-  let filteredCards = [];
+  const [filteredCards, setFilteredCards] = useState(cards);
+
   const cardsJSX = filteredCards.map((card) => (
     <Card
       title={card.title}
@@ -46,13 +47,15 @@ function App() {
         <SearchForm
           onSearch={(value) => {
             console.log(value);
-            filteredCards = cards.filter(
+            const items = cards.filter(
               (item) =>
                 item.title.includes(value) || item.description.includes(value)
             );
             console.log(filteredCards);
+            setFilteredCards(items);
           }}
         />
+        {/* {render} */}
         <ul className="repo-cards">{cardsJSX}</ul>
       </main>
     </>
