@@ -1,42 +1,33 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/header";
 import SearchBar from "./components/searchBar";
 import Card from "./components/card";
 
-const cards = [
-  {
-    title: "facebook/react",
-    description: "placeholder description",
-    stars: 500,
-    forks: 100,
-  },
-  {
-    title: "vuejs/vue",
-    description: "vue vuejs",
-    stars: 500,
-    forks: 100,
-  },
-  {
-    title: "sveltejs/svelte",
-    description: "placeholder description",
-    stars: 500,
-    forks: 100,
-  },
-];
-
 function App() {
-  const [filterCards, setFilterCards] = useState(cards);
+  const [filterCards, setFilterCards] = useState([]);
 
   const cardsJSX = filterCards.map((card) => (
     <Card
-      title={card.title}
+      title={card.name}
       description={card.description}
-      stars={card.stars}
+      stars={card.score}
       forks={card.forks}
     />
   ));
-  console.log("render", filterCards);
+
+  useEffect(() => {
+    fetch("https://api.github.com/search/repositories?q=stars:>10000", {
+      headers: {
+        Authorization: "Bearer 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",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setFilterCards(data.items);
+      });
+  }, []);
   return (
     <>
       <Header />
@@ -45,14 +36,12 @@ function App() {
           onSearch={(value) => {
             console.log(value);
             const items = [];
-            for (let i = 0; i < cards.length; i++) {
-              if (
-                cards[i].title.includes(value) ||
-                cards[i].description.includes(value)
-              ) {
-                items.push(cards[i]);
-              }
-            }
+            fetch(`https://api.github.com/search/repositories?q=${value}`)
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                setFilterCards(data.items);
+              });
             console.log(items);
             setFilterCards(items);
           }}
