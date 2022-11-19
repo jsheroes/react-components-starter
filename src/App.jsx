@@ -5,7 +5,7 @@ function App() {
     <>
       <header>
         <div className="content-wrapper">
-          <h1>Welcome to the JSHeroes Bootcamp!</h1>
+          <h1>Welcome to the JSHeroes Bootcamp - Team 11!</h1>
         </div>
         <img className="bear" src="/js-heroes-bear.png" />
       </header>
