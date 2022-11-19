@@ -1,48 +1,41 @@
 import "./App.css";
+import Head from "./Components/Header/Header";
+import SearchForm from "./Components/SearchForm/SearchForm";
+import Card from "./Components/Card/Card";
+
+const cards = [
+  {
+    title: "facebook/react",
+    description: "placeholder description",
+    stars: 500,
+    forks: 100,
+  },
+
+  {
+    title: "vuejs/vue",
+    description: "placeholder description",
+    stars: 500,
+    forks: 100,
+  },
+
+  {
+    title: "sveltejs/svelte",
+    description: "placeholder description",
+    stars: 500,
+    forks: 100,
+  },
+];
 
 function App() {
   return (
     <>
-      <header>
-        <div className="content-wrapper">
-          <h1>Hello!</h1>
-        </div>
-        <img className="bear" src="/js-heroes-bear.png" />
-      </header>
-
+      <Head />
       <main>
-        <form className="search-form">
-          <input className="input" />
-          <button className="button">Search</button>
-        </form>
-
+        <SearchForm />
         <ul className="repo-cards">
-          <li className="repo-card">
-            <span className="title">facebook/react</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">vuejs/vue</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">sveltejs/svelte</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
+          <Card />
+          <Card />
+          <Card />
         </ul>
       </main>
     </>
