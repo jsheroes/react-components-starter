@@ -28,8 +28,6 @@ const cards = [
 ];
 
 function App() {
-  const [cards, setCards] = useState([]);
-
   const [filteredCards, setFilteredCards] = useState(cards);
 
   const cardsJSX = filteredCards.map((card) => (
@@ -48,10 +46,10 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        setCards(data.items);
+        setFilteredCards(data.items);
       });
   }, []);
-
+  // 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
   return (
     <>
       <Head />
@@ -59,12 +57,17 @@ function App() {
         <SearchForm
           onSearch={(value) => {
             console.log(value);
-            const items = cards.filter(
-              (item) =>
-                item.name.includes(value) || item.description.includes(value)
-            );
-            console.log(filteredCards);
-            setFilteredCards(items);
+            fetch(`https://api.github.com/search/repositories?q=${value}`, {
+              headers: {
+                Authorization:
+                  "Bearer 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",
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                setFilteredCards(data.items);
+              });
           }}
         />
         {/* {render} */}
