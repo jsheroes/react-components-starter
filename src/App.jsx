@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {
     fetch("https://api.github.com/search/repositories?q=stars:>10000", {
       headers: {
-        Authorization: "Bearer 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",
+        Authorization: "Bearer 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",
       },
     })
       .then((response) => response.json())
