@@ -48,7 +48,7 @@ input,
 button,
 textarea,
 select {
-  font: inherit;
+  font: normal;
 }
 /*
   8. Avoid text overflows
