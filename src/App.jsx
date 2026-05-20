@@ -1,49 +1,52 @@
 import "./App.css";
+import { useState, useEffect } from "react";
+import Header from "./components/header";
+import SearchBar from "./components/searchBar";
+import Card from "./components/card";
 
 function App() {
+  const [filterCards, setFilterCards] = useState([]);
+
+  const cardsJSX = filterCards.map((card) => (
+    <Card
+      title={card.name}
+      description={card.description}
+      stars={card.score}
+      forks={card.forks}
+    />
+  ));
+
+  useEffect(() => {
+    fetch("https://api.github.com/search/repositories?q=stars:>10000", {
+      headers: {
+        Authorization: "Bearer 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",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setFilterCards(data.items);
+      });
+  }, []);
   return (
     <>
-      <header>
-        <div className="content-wrapper">
-          <h1>Welcome to the JSHeroes Bootcamp!</h1>
-        </div>
-        <img className="bear" src="/js-heroes-bear.png" />
-      </header>
-
+      <Header />
       <main>
-        <form className="search-form">
-          <input className="input" />
-          <button className="button">Search</button>
-        </form>
-
-        <ul className="repo-cards">
-          <li className="repo-card">
-            <span className="title">facebook/react</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">vuejs/vue</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-
-          <li className="repo-card">
-            <span className="title">sveltejs/svelte</span>
-            <span className="description">placeholder description</span>
-            <section className="footer">
-              <div>Stars: 500</div>
-              <div>Forks: 100</div>
-            </section>
-          </li>
-        </ul>
+        <SearchBar
+          onSearch={(value) => {
+            console.log(value);
+            const items = [];
+            fetch(`https://api.github.com/search/repositories?q=${value}`)
+              .then((response) => response.json())
+              .then((data) => {
+                console.log(data);
+                setFilterCards(data.items);
+              });
+            console.log(items);
+            setFilterCards(items);
+          }}
+        />
+        <ul className="repo-cards">{cardsJSX}</ul>
       </main>
     </>
   );
